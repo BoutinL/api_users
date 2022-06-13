@@ -19,4 +19,4 @@ npm run build
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Figma
-https://www.figma.com/file/yTA9Tok4TfGSwiktz8j11p/api_users?node-id=0%3A1
+Ma maquette: https://www.figma.com/file/yTA9Tok4TfGSwiktz8j11p/api_users?node-id=0%3A1

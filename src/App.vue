@@ -13,6 +13,29 @@
   </footer>
 </template>
 
+<script>
+export default{
+  name: "App",
+  beforeMount() {
+    const headers = {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin ": "*"
+    }
+    fetch('https://jsonplaceholder.typicode.com/todos/10/users/')
+    .then(response => response.json())
+    .then(json => {
+      this.data = json ;
+      console.log(this.data);
+      // console.log(Object.keys(this.data[0]));
+      this.$store.commit("setColumns", Object.keys(this.data[0]));
+      this.allColumns = Object.keys(this.data[0]);
+      // console.log("Store colonnes ", this.$store.state.columns);
+      this.$store.commit("setUsers", this.data);  
+    })
+  }
+}
+</script>
+
 <style>
 nav {
   background-color: #FBC520;
@@ -21,7 +44,7 @@ nav {
 footer {
   background-color: #FBC520;
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
   color:#FFFFFF;
 }
 .liens {
@@ -40,6 +63,7 @@ a{
   border-radius: 35px;
   text-align: center;
   font-weight: bold;
+  box-shadow: 5px 5px 5px gray;
 }
 img{
   border-radius: 30px;
