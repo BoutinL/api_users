@@ -1,30 +1,48 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <img alt="Id logo" src="@/assets/img/logo-Id-Formation.png"/>
+    <div class="liens">
+      <router-link to="/">Accueil</router-link>
+      <router-link to="/listeutilisateurs">Liste utilisateurs</router-link>
+      <router-link to="/ajout">Ajout</router-link>
+    </div>
   </nav>
   <router-view/>
+  <footer>
+    <span>Copyright ID Formation © 2022</span>
+  </footer>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
 nav {
-  padding: 30px;
+  background-color: #FBC520;
+  display: flex;
 }
-
-nav a {
+footer {
+  background-color: #FBC520;
+  text-align: center;
+  padding: 1rem;
+  color:#FFFFFF;
+}
+.liens {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  align-items: center;
+}
+a{
+  font-size: 1.5rem;
+  text-decoration:none;
+  width: 20%;
+  padding: 1rem;
+  background-color: #FFFFFF;
+  color:#235F62;
+  border-radius: 35px;
+  text-align: center;
   font-weight: bold;
-  color: #2c3e50;
 }
-
-nav a.router-link-exact-active {
-  color: #42b983;
+img{
+  border-radius: 30px;
+  margin: 1rem;
 }
 </style>
