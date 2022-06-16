@@ -20,8 +20,9 @@ const routes = [
     component: Ajout
   },
   {
-    path: '/modif',
+    path: '/modif/:id',
     name: 'modif',
+    props: true,
     component: Modif
   }
 ]

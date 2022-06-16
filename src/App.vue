@@ -55,7 +55,7 @@ body{margin:0px}
     width: 100%;
     align-items: center;
   }
-  a{
+  nav a{
     font-size: 1.2rem;
     text-decoration:none;
     width: 20%;
@@ -71,7 +71,7 @@ body{margin:0px}
     border-radius: 30px;
     margin: 1rem;
   }
-  a:hover{
+  nav a:hover{
       background-color: #235f62;
       transition: 0.6s;
       color: #ffffff;
@@ -97,7 +97,7 @@ body{margin:0px}
     flex-direction: column;
     align-items: center;
   }
-  a{
+  nav a{
     font-size: 1.2rem;
     text-decoration:none;
     width: 70%;
@@ -114,7 +114,7 @@ body{margin:0px}
     border-radius: 60px;
     margin: 1rem;
   }
-  a:hover{
+  nav a:hover{
       background-color: #235f62;
       transition: 0.6s;
       color: #ffffff;
@@ -144,7 +144,7 @@ body{margin:0px}
     align-items: center;
     flex-direction: column;
   }
-  a{
+  nav   a{
     font-size: 1.5rem;
     text-decoration:none;
     width: 100%;
