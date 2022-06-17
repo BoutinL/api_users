@@ -80,7 +80,7 @@ body{margin:0px}
     color: #fbc522;
   }
 }
-@media only screen and (min-width: 426px)  and (max-width: 768px){
+@media only screen and (min-width: 426px)  and (max-width: 1220px){
   nav {
     background-color: #FBC520;
     display: flex;
@@ -162,6 +162,12 @@ body{margin:0px}
     border-radius: 100%;
     margin: 1rem;
   }
+    nav a:hover{
+      background-color: #235f62;
+      transition: 0.6s;
+      color: #ffffff;
+  }
+  
   nav a.router-link-exact-active {
     color: #fbc522;
   }

@@ -4,9 +4,11 @@
     <form>
         <label v-for="(key,value) in userDatas" :key="value">
             <span>{{value.toUpperCase()}}</span>
-            <input type="text" v-bind:value="key"  >
+            <input type="text" v-model="userDatas[value]">
         </label>
-        <button>Valider</button>
+        <router-link :to="{ name: 'listeutilisateurs' }"> 
+            <button @click="modifUser()">Valider</button>
+        </router-link>
     </form>
 </div>
 </template>
@@ -16,14 +18,18 @@ export default {
     name: 'modif',
     data: function() {
         return {
+            userDatas: {},
         }
     },  
+    methods:{
+    modifUser() {
+        console.log(this.userDatas)
+        this.$store.commit("updateUser", this.userDatas);
+    }
+    },
     props:["id","currentUser"],
     beforeMount() {
-        this.userDatas =
-        this.$store.state.users[
-        this.$store.state.users.findIndex((v) => v.id == this.id)
-        ];
+        this.userDatas = this.$store.state.users[this.$store.state.users.findIndex((v) => v.id == this.id)];
     }
 }
 </script>
@@ -68,7 +74,7 @@ export default {
         font-weight: bold;
         font-size: 20px;
         padding: 10px;
-        width: 40%;
+        width: 200px;
         border-radius: 35px;
     }
     label:first-child{
@@ -114,7 +120,7 @@ export default {
         font-weight: bold;
         font-size: 20px;
         padding: 10px;
-        width: 40%;
+        width: 150px;
         border-radius: 35px;
     }
     label:first-child{
@@ -161,7 +167,7 @@ export default {
         font-weight: bold;
         font-size: 20px;
         padding: 10px;
-        width: 40%;
+        width: 100px;
         border-radius: 35px;
     }
     label:first-child{

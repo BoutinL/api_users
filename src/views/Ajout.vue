@@ -2,11 +2,13 @@
 <div>
     <h1>Ajout d'un nouvel utilisateur</h1>
     <form>
-        <label v-for="column in allColumns">
-            <span>{{column.toUpperCase()}}</span>
-            <input type="text">
+        <label v-for="(titre) of allColumns">
+            <span>{{titre.toUpperCase()}}</span>
+            <input type="text" v-model="newUser[titre]">
         </label>
-        <button>Créer</button>
+        <router-link :to="{ name: 'listeutilisateurs' }"> 
+            <button @click="addUser()">Créer</button>
+        </router-link>
     </form>
 </div>
 </template>
@@ -17,13 +19,17 @@ export default {
     data: function() {
         return {
             allColumns:[],
-            allUsers:{},
+            newUser:{id:this.$store.state.counter},
         }
     }
     ,
+    methods:{
+        addUser() {
+            this.$store.commit("addUser", this.newUser);
+        }
+    },
     beforeMount () {
         this.allColumns = this.$store.state.columns;
-        this.allUsers = this.$store.state.users;
     }
 }
 </script>
@@ -68,7 +74,7 @@ export default {
         font-weight: bold;
         font-size: 20px;
         padding: 10px;
-        width: 40%;
+        width: 200px;
         border-radius: 35px;
     }
     label:first-child{
@@ -114,7 +120,7 @@ export default {
         font-weight: bold;
         font-size: 20px;
         padding: 10px;
-        width: 40%;
+        width: 150px;
         border-radius: 35px;
     }
     label:first-child{
@@ -161,7 +167,7 @@ export default {
         font-weight: bold;
         font-size: 20px;
         padding: 10px;
-        width: 40%;
+        width: 100px;
         border-radius: 35px;
     }
     label:first-child{

@@ -3,7 +3,7 @@
     <h1>Liste des utilisateurs</h1>
     <table>
       <thead>
-        <tr>
+        <tr class="colonne-mobile-off">
           <th v-for="column in allColumns">
             {{column.toUpperCase()}}
           </th>
@@ -23,8 +23,7 @@
             </router-link>
             <input type="button" @click="afficherModal(user.id , user.username)" class="btn-supr" value="Supprimer">
               <Teleport to="body">
-                <modal :show="showModal" :userId="activeUserId" :userName="activeUserName" @cancel="showModal = false" @confirm="removeUser">
-                </modal>
+                <modal :show="showModal" :userId="activeUserId" :userName="activeUserName" @cancel="showModal = false" @confirm="removeUser"></modal>
               </Teleport>
           </td>
         </tr>
@@ -70,7 +69,7 @@ export default {
 </script>
 
 <style scoped>
-@media only screen and (min-width: 769px){
+@media only screen and (min-width: 1221px){
   div{
     display: flex;
     flex-direction: column;
@@ -81,13 +80,115 @@ export default {
     color: #235F62;
   }
   table{
-    width: 80%;
+    width: 100%;
     margin-bottom: 2rem;
+    padding: 1rem;
   }
   td,tr,th{
-    border-width:1px;
-    border-style:solid; 
+    border: 2px solid #235F62;
     padding:1rem;
+  }
+  input{
+    border-radius: 35px;
+    color: white;
+  }
+  .btn-mdf{
+    background-color: #235F62; 
+    padding: 10px;
+    width: 100%;
+    font-weight: bold;
+  }
+  .btn-supr{
+    background-color: #FBC520;
+    padding: 10px;
+    width: 100%;
+    margin-top: 1.5rem;
+    font-weight: bold;
+  }
+  .td-btn{
+    flex-direction: column;
+  }
+  tr:nth-child(odd) {
+    background: #235f6288;
+  }
+  tr:nth-child(even) {
+    background: #235f624f;
+  }
+}
+@media only screen and (min-width: 426px)  and (max-width: 1220px){
+  h1 {
+    text-align: center;
+    color: #235F62;
+  }
+  .colonne-mobile-off{
+    display: none;
+  }
+  table{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
+  td,tr,th{
+    padding:1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  tr{ 
+    margin-bottom: 1rem;
+    border-radius: 35px;
+    border: 5px solid #235F62;
+  }
+  input{
+    border-radius: 35px;
+    color: white;
+  }
+  .btn-mdf{
+    background-color: #235F62; 
+    padding: 10px;
+    width: 50%;
+    margin: auto;
+    font-weight: bold;
+  }
+  .btn-supr{
+    background-color: #FBC520;
+    padding: 10px;
+    width: 50%;
+    margin: auto;
+    margin-top: 1.5rem;
+    font-weight: bold;
+  }
+  tr:nth-child(odd) {
+    background: #235f6288;
+  }
+  tr:nth-child(even) {
+    background: #235f624f;
+  }
+}
+@media only screen and (max-width: 425px){
+  h1 {
+    text-align: center;
+    color: #235F62;
+  }
+  .colonne-mobile-off{
+    display: none;
+  }
+  table{
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
+  td,tr,th{
+    padding:1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  tr{ 
+    margin-bottom: 1rem;
+    border-radius: 35px;
+    border: 5px solid #235F62;
   }
   input{
     border-radius: 35px;
